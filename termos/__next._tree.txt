@@ -1,0 +1,7 @@
+:HL["/lousa/_next/static/chunks/1ldebnvawv_tz.css","style"]
+:HL["/lousa/_next/static/media/6e7755c9813efd51-s.p.0pan85mumqyf3.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/lousa/_next/static/media/d0bb57161af4f6e9-s.p.2bnqhhlne77zx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/lousa/_next/static/media/fe68a48bcbeff111-s.p.1jake7ccbq8_p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"termos","h":96,"c":"$Q2"}]]
+0:{"b":"eAMBmmkPb2YW0kpUoZ6kY","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

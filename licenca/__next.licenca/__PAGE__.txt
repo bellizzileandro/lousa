@@ -1,0 +1,102 @@
+1:"$Sreact.fragment"
+2:"/lousa/_next/static/chunks/3r6cf2d6nff-r.js"
+3:I[42724,["$2"],"Nav"]
+4:I[39756,["$2"],"default"]
+5:I[37457,["$2"],"default"]
+6:I[22016,["$2"],""]
+:HL["/lousa/_next/static/chunks/1ldebnvawv_tz.css","style"]
+b:X
+f:X
+f:C
+10:[["children",{"s":"__PAGE__","h":160,"d":{"r":"$L11","p":"$@12","v":null,"s":"$b"}}]]
+c:[["children",{"s":"licenca","h":96,"d":{"r":"$Ld","p":"$@e","v":"$f","s":"$b"},"c":"$Q10"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/lousa/_next/static/chunks/1ldebnvawv_tz.css","precedence":"next"}],["$","script","script-0",{"src":"/lousa/_next/static/chunks/3r6cf2d6nff-r.js","async":true}]],["$","html",null,{"lang":"pt-BR","className":"oixttW_variable y2aRga_variable KGkp5W_variable","children":["$","body",null,{"children":[["$","a",null,{"href":"#conteudo","className":"sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-50 focus:bg-surface focus:px-4 focus:py-2","children":"Pular para o conteúdo"}],["$","$L3",null,{}],["$","main",null,{"id":"conteudo","children":["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]}],["$","footer",null,{"className":"mt-[72px] border-t border-line pb-10 pt-16 text-[15px] text-muted sm:mt-28","children":["$","div",null,{"className":"mx-auto max-w-[1180px] px-4 sm:px-8","children":[["$","div",null,{"className":"grid grid-cols-2 gap-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]","children":[["$","div",null,{"className":"col-span-2 md:col-span-1","children":[["$","$L6",null,{"href":"/","className":"flex items-center gap-2.5 text-[21px] font-extrabold leading-none tracking-tight text-ink no-underline","children":[["$","span",null,{"aria-hidden":true,"className":"bg-brand grid size-8 place-items-center rounded-[9px] text-[19px] text-white","children":"L"}],"Lousa"]}],["$","p",null,{"className":"mt-3.5 max-w-[32ch]","children":"Editor de artes simples e gratuito para Windows."}]]}],[["$","div","Produto",{"children":[["$","h2",null,{"className":"mb-3 text-sm font-bold text-ink","children":"Produto"}],["$","ul",null,{"className":"grid gap-2","children":[["$","li","Recursos",{"children":["$","$L6",null,{"href":"/recursos","className":"text-muted no-underline hover:text-ink hover:underline","children":"Recursos"}]}],["$","li","Sobre",{"children":["$","$L6",null,{"href":"/sobre","className":"text-muted no-underline hover:text-ink hover:underline","children":"Sobre"}]}],["$","li","Baixar",{"children":["$","a",null,{"href":"/lousa/Lousa.exe","download":"Lousa.exe","className":"text-muted no-underline hover:text-ink hover:underline","children":"Baixar"}]}]]}]]}],["$","div","Suporte",{"children":[["$","h2",null,{"className":"mb-3 text-sm font-bold text-ink","children":"Suporte"}],["$","ul",null,{"className":"grid gap-2","children":[["$","li","Ajuda",{"children":["$","$L6",null,{"href":"/ajuda","className":"text-muted no-underline hover:text-ink hover:underline","children":"Ajuda"}]}],["$","li","Perguntas frequentes",{"children":["$","$L6",null,{"href":"/ajuda#perguntas","className":"text-muted no-underline hover:text-ink hover:underline","children":"Perguntas frequentes"}]}],["$","li","Relatar um problema",{"children":["$","a",null,{"href":"https://github.com/bellizzileandro/lousa/issues","className":"text-muted no-underline hover:text-ink hover:underline","children":"Relatar um problema"}]}]]}]]}],["$","div","Legal",{"children":[["$","h2",null,{"className":"mb-3 text-sm font-bold text-ink","children":"Legal"}],["$","ul",null,{"className":"grid gap-2","children":[["$","li","Termos de uso",{"children":["$","$L6",null,{"href":"/termos","className":"text-muted no-underline hover:text-ink hover:underline","children":"Termos de uso"}]}],"$L7","$L8"]}]]}]]]}],"$L9"]}]}]]}]}]]}],"p":"$@a","v":null,"s":"$b"},"c":"$Qc"},"h":{"r":"$L13","p":"$@14","v":null,"s":"$b"}},"a":"$@15","u":"$@16","b":"eAMBmmkPb2YW0kpUoZ6kY"}
+19:"ViewportBoundary"
+1a:I[97367,["$2"],"$19"]
+1b:"MetadataBoundary"
+1c:I[97367,["$2"],"$1b"]
+1d:"$Sreact.suspense"
+1e:I[27201,["$2"],"IconMark"]
+7:["$","li","Privacidade e LGPD",{"children":["$","$L6",null,{"href":"/privacidade","className":"text-muted no-underline hover:text-ink hover:underline","children":"Privacidade e LGPD"}]}]
+8:["$","li","Licença",{"children":["$","$L6",null,{"href":"/licenca","className":"text-muted no-underline hover:text-ink hover:underline","children":"Licença"}]}]
+9:["$","div",null,{"className":"mt-14 flex flex-wrap justify-between gap-3 border-t border-line pt-6 text-sm","children":[["$","span",null,{"children":["© 2026 ","OmegaCo Tech Digital",". Todos os direitos reservados."]}],["$","span",null,{"children":["Lousa ","1.0.11"]}]]}]
+d:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}]
+17:Td46,LICENÇA DE USO DO SOFTWARE LOUSA
+
+Copyright (c) 2026 OmegaCo Tech Digital. Todos os direitos reservados.
+
+O Lousa (o "Software") é de propriedade da OmegaCo Tech Digital (a "Titular") e
+está protegido pela Lei nº 9.609/1998 (Lei do Software) e pela Lei nº 9.610/1998
+(Lei de Direitos Autorais). Esta licença não transfere a propriedade do Software;
+ela concede apenas o direito de uso nas condições abaixo.
+
+1. O QUE VOCÊ PODE FAZER
+   A Titular concede a você, gratuitamente, uma licença pessoal, não exclusiva,
+   intransferível e revogável para:
+   a) baixar o Software a partir do site oficial ou do repositório oficial;
+   b) instalar, copiar e executar o Software em quantos computadores e
+      dispositivos de armazenamento (como pendrives) quiser, para uso pessoal
+      ou profissional, inclusive comercial;
+   c) criar artes e imagens com o Software e usá-las livremente, inclusive
+      para fins comerciais.
+
+2. O QUE VOCÊ NÃO PODE FAZER
+   Sem autorização prévia e por escrito da Titular, você não pode:
+   a) vender, alugar, sublicenciar ou cobrar pelo Software ou por cópias dele;
+   b) distribuir o Software em sites, lojas ou pacotes de terceiros, ou
+      distribuir versões alteradas;
+   c) modificar, adaptar, traduzir, descompilar, desmontar ou fazer engenharia
+      reversa do Software, exceto na medida em que a lei aplicável permita
+      expressamente;
+   d) remover ou alterar avisos de direitos autorais, marcas ou esta licença;
+   e) usar o nome "Lousa", o logotipo ou a identidade visual do Software de
+      forma que sugira parceria, patrocínio ou origem que não existe.
+
+3. SUAS CRIAÇÕES
+   As artes e imagens que você criar com o Software pertencem a você. A
+   Titular não reivindica nenhum direito sobre elas. Você é o único responsável
+   pelo conteúdo que inserir, incluindo textos, fotos, logotipos e marcas de
+   terceiros.
+
+4. COMPONENTES DE TERCEIROS
+   O Software inclui componentes de terceiros, que continuam regidos por suas
+   próprias licenças:
+   - fontes do Google Fonts, sob a SIL Open Font License 1.1;
+   - ícones Lucide (licença ISC), Phosphor Icons (licença MIT) e
+     Simple Icons (CC0 1.0);
+   - o framework Tauri (licenças MIT ou Apache 2.0).
+   Nada nesta licença restringe os direitos que essas licenças concedem.
+   Marcas representadas em ícones pertencem aos respectivos donos.
+
+5. SEM GARANTIA
+   O Software é fornecido "no estado em que se encontra", sem garantias de
+   qualquer tipo, expressas ou implícitas, incluindo adequação a um
+   propósito específico e ausência de erros, na máxima extensão permitida
+   pela lei aplicável.
+
+6. LIMITAÇÃO DE RESPONSABILIDADE
+   Na máxima extensão permitida pela lei aplicável, a Titular não será
+   responsável por danos indiretos, lucros cessantes ou perda de dados
+   decorrentes do uso ou da impossibilidade de uso do Software. Nada nesta
+   licença afasta direitos garantidos pelo Código de Defesa do Consumidor.
+
+7. ENCERRAMENTO
+   Esta licença termina automaticamente se você descumprir qualquer uma das
+   condições acima. Nesse caso, você deve parar de usar o Software e apagar
+   as cópias que tiver. As artes que você já criou continuam suas.
+
+8. LEI APLICÁVEL
+   Esta licença é regida pelas leis da República Federativa do Brasil.
+11:["$","$1","c",{"children":[[["$","header",null,{"className":"border-b border-line pb-10 pt-14 sm:pb-16 sm:pt-24","children":["$","div",null,{"className":"mx-auto max-w-[1180px] px-4 sm:px-8 ","children":[["$","h1",null,{"className":"font-display max-w-[18ch] text-[clamp(44px,5.6vw,76px)] leading-[.98]","children":"Licença de uso"}],["$","div",null,{"className":"mt-5 max-w-[52ch] text-[clamp(18px,1.8vw,21px)] leading-relaxed text-muted","children":"O Lousa é gratuito para uso pessoal e comercial. As artes que você cria são suas. O programa em si não pode ser revendido nem alterado."}]]}]}],["$","div",null,{"className":"mx-auto max-w-[1180px] px-4 sm:px-8 ","children":["$","pre",null,{"className":"prose-lousa whitespace-pre-wrap pt-14 font-sans text-[16px] leading-relaxed","children":"$17"}]}]],null,"$L18"]}]
+13:["$","$1","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1c",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1d",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Licença | Lousa"}],["$","meta","1",{"name":"description","content":"Licença de uso do Lousa: gratuito para uso pessoal e comercial."}],["$","link","2",{"rel":"icon","href":"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e91e8c'/%3E%3Cstop offset='1' stop-color='%2378083c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='42' fill='%23fff'%3EL%3C/text%3E%3C/svg%3E"}],["$","$L1e","3",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+1f:I[97367,["$2"],"OutletBoundary"]
+18:["$","$L1f",null,{"children":["$","$1d",null,{"name":"Next.MetadataOutlet","children":"$@20"}]}]
+16:true
+b:300
+20:null
+b:C
+15:0
+e:"$undefined"
+14:"$undefined"
+a:"$undefined"
+12:"$undefined"
