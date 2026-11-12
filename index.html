@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lousa: editor de artes simples para Windows</title>
+<meta name="description" content="Faça artes de vagas, avisos e posts em minutos. Abre direto do pendrive, sem instalar.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e91e8c'/%3E%3Cstop offset='1' stop-color='%2378083c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='42' fill='%23fff'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#e91e8c; --wine:#5a0a33; --ink:#000; --rose:#c2185b; --blush:#ffe3f1;
+    --paper:#f7f7f9; --stage:#d4d5da; --text:#222; --muted:#5b5b66; --line:#e1e1e8;
+    --hero:linear-gradient(135deg,var(--pink) 0%,var(--wine) 58%,var(--ink) 100%);
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#141016;--text:#f1eef2;--muted:#b7aebb;--line:#2d2530}}
+  :root[data-theme="dark"]{--paper:#141016;--text:#f1eef2;--muted:#b7aebb;--line:#2d2530}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font:400 17px/1.6 "Poppins","Segoe UI",Arial,sans-serif;color:var(--text);background:var(--paper)}
+  a{color:inherit}
+  :focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:10px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+  /* ---------- hero: o mesmo degradê da barra do app ---------- */
+  .hero{background:var(--hero);color:#fff;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px;align-items:center;padding-top:72px;padding-bottom:88px}
+  .brand{display:flex;align-items:center;gap:20px;margin-bottom:28px}
+  .tile{flex:none;width:84px;height:84px;border-radius:22px;background:linear-gradient(var(--pink),#78083c);display:grid;place-items:center;font:900 56px/1 "Poppins",sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.25)}
+  h1{margin:0;font:900 clamp(64px,10vw,120px)/.9 "Poppins",sans-serif;letter-spacing:-.04em}
+  .lead{margin:0 0 36px;font-size:clamp(19px,2.2vw,23px);line-height:1.45;max-width:30ch;opacity:.92}
+  .dl{display:inline-flex;align-items:center;gap:12px;padding:18px 28px;border-radius:14px;background:#fff;color:var(--rose);font:700 19px/1 "Poppins",sans-serif;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.35);transition:background .15s,transform .15s}
+  .dl:hover{background:var(--blush)}
+  .dl:active{transform:translateY(1px)}
+  .dl svg{width:24px;height:24px}
+  .meta{margin:14px 0 0;font-size:14px;opacity:.75}
+
+  /* ---------- a janela do editor, feita em HTML ---------- */
+  .win{border-radius:14px;overflow:hidden;background:var(--stage);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.12);transform:rotate(1.5deg);color:#222}
+  .win-top{background:var(--hero);color:#fff}
+  .tbar{display:flex;align-items:center;gap:8px;height:34px;padding-left:10px;font:700 13px "Poppins",sans-serif}
+  .tbar .tl{width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,var(--pink),#14000b);display:grid;place-items:center;font:900 12px "Poppins";box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+  .tbar .sp{flex:1}
+  .tbar i{width:40px;text-align:center;font-style:normal;opacity:.85;font-weight:400}
+  .tools{display:flex;gap:6px;padding:6px 10px 10px;flex-wrap:wrap}
+  .tools span{padding:5px 11px;border-radius:9px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);font-size:12px;font-weight:600}
+  .tools .gr{flex:1;border:0;background:none;padding:0}
+  .tools .main{background:#fff;color:var(--rose);border-color:#fff}
+  .work{display:flex;height:400px}
+  .stagebox{flex:1;display:grid;place-items:center;padding:18px}
+  .panel{width:170px;background:#f7f7f9;border-left:1px solid #c8c9ce;padding:12px;font-size:11px;color:#555}
+  .panel b{display:block;color:#222;font-size:12px;margin-bottom:8px}
+  .panel .f{height:22px;border:1px solid #ccc;border-radius:5px;background:#fff;margin:3px 0 9px;padding:0 6px;line-height:20px;color:#222;overflow:hidden;white-space:nowrap}
+  .panel .sw{display:flex;gap:5px;margin:3px 0 9px}.panel .sw i{width:20px;height:20px;border-radius:5px;border:1px solid #ccc}
+  /* cartaz de exemplo (fictício) */
+  .poster{position:relative;height:100%;aspect-ratio:1102/1427;background:#2a0a3d;color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.25);padding:9% 9% 0;display:flex;flex-direction:column;overflow:hidden}
+  .poster::before{content:"";position:absolute;inset:auto -30% -38% -30%;height:62%;background:var(--pink);border-radius:50%}
+  .poster>*{position:relative}
+  .poster .k{font:400 15px/1 "Anton",sans-serif;letter-spacing:.02em;color:#ffd84d}
+  .poster .t{font:400 44px/.95 "Anton",sans-serif;margin:8px 0 12px;padding:3px;outline:1.5px solid #1e88ff}
+  .poster .t::after{content:"";position:absolute;inset:-5px;background:
+      linear-gradient(#1e88ff,#1e88ff) left top/8px 8px no-repeat,linear-gradient(#1e88ff,#1e88ff) right top/8px 8px no-repeat,
+      linear-gradient(#1e88ff,#1e88ff) left bottom/8px 8px no-repeat,linear-gradient(#1e88ff,#1e88ff) right bottom/8px 8px no-repeat;
+      animation:pick .5s .6s both}
+  .poster .d{font:600 11px/1.5 "Poppins",sans-serif;opacity:.9}
+  .poster .c{margin-top:auto;margin-bottom:10%;align-self:flex-start;background:#fff;color:#2a0a3d;font:700 11px "Poppins";padding:6px 12px;border-radius:99px}
+  @keyframes pick{from{opacity:0;transform:scale(1.15)}to{opacity:1;transform:none}}
+
+  /* ---------- conteúdo ---------- */
+  section{padding:88px 0}
+  h2{margin:0 0 12px;font:900 clamp(32px,4.5vw,46px)/1.05 "Poppins",sans-serif;letter-spacing:-.02em}
+  .intro{margin:0 0 48px;color:var(--muted);max-width:52ch}
+  .feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 64px;margin:0;padding:0;list-style:none}
+  .feats li{display:grid;grid-template-columns:48px 1fr;gap:4px 18px}
+  .feats svg{grid-row:span 2;width:48px;height:48px;padding:11px;border-radius:14px;background:var(--pink);color:#fff}
+  .feats h3{margin:0;font:700 19px/1.3 "Poppins",sans-serif}
+  .feats p{margin:0;color:var(--muted);max-width:42ch}
+
+  .steps{background:var(--hero);color:#fff}
+  .steps .intro{color:#fff;opacity:.8}
+  .steps ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;counter-reset:s}
+  .steps li{counter-increment:s;border-top:2px solid rgba(255,255,255,.35);padding-top:20px}
+  .steps li::before{content:counter(s);display:block;font:900 64px/1 "Poppins",sans-serif;margin-bottom:12px;color:rgba(255,255,255,.9)}
+  .steps h3{margin:0 0 6px;font:700 20px/1.3 "Poppins",sans-serif}
+  .steps p{margin:0;opacity:.85}
+  .steps kbd{font:600 14px "Poppins";background:rgba(255,255,255,.16);padding:1px 7px;border-radius:6px}
+  .again{margin-top:56px}
+
+  footer{padding:36px 0 44px;color:var(--muted);font-size:15px}
+  footer .wrap{display:flex;gap:16px 32px;flex-wrap:wrap;justify-content:space-between}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:48px;padding-top:48px}
+    .win{transform:none}
+    .feats,.steps ol{grid-template-columns:1fr}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 16px}
+    .panel,.tools .opt{display:none}
+    .work{height:330px}
+    .brand{gap:14px}.tile{width:64px;height:64px;font-size:42px;border-radius:18px}
+    .dl{width:100%;justify-content:center}
+    section{padding:64px 0}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.poster .t::after{animation:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brand"><div class="tile" aria-hidden="true">L</div><h1>Lousa</h1></div>
+      <p class="lead">Faça artes de vagas, avisos e posts em minutos. Abre direto do pendrive, sem instalar nada.</p>
+      <a class="dl" href="Lousa.exe" download="Lousa.exe">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224 144v64a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8v-64a8 8 0 0 1 16 0v56h160v-56a8 8 0 0 1 16 0Zm-101.66 5.66a8 8 0 0 0 11.32 0l40-40a8 8 0 0 0-11.32-11.32L136 124.69V32a8 8 0 0 0-16 0v92.69L93.66 98.34a8 8 0 0 0-11.32 11.32Z"/></svg>
+        Baixar para Windows
+      </a>
+      <p class="meta">Versão 1.0.7 para Windows 10 e 11, cerca de 4 MB</p>
+    </div>
+
+    <div class="win" role="img" aria-label="Janela do Lousa editando um cartaz de vaga, com o título selecionado">
+      <div class="win-top">
+        <div class="tbar"><span class="tl">L</span>Lousa<span class="sp"></span><i>–</i><i>□</i><i>✕</i></div>
+        <div class="tools"><span>Texto</span><span>Caixa</span><span class="opt">Ícones</span><span class="opt">Imagens</span><span class="gr"></span><span class="main">Baixar imagem</span></div>
+      </div>
+      <div class="work">
+        <div class="stagebox">
+          <div class="poster">
+            <div class="k">Estamos contratando</div>
+            <div class="t">Atendente<br>de loja</div>
+            <div class="d">Segunda a sábado<br>Vale-transporte e refeição<br>Início imediato</div>
+            <div class="c">Envie seu currículo</div>
+          </div>
+        </div>
+        <div class="panel">
+          <b>Texto</b>
+          Conteúdo<div class="f">Atendente de loja</div>
+          Fonte<div class="f">Anton</div>
+          Cor<div class="sw"><i style="background:#fff"></i><i style="background:#ffd84d"></i><i style="background:#e91e8c"></i></div>
+          Tamanho<div class="f">44</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>Tudo que um cartaz precisa</h2>
+      <p class="intro">Textos, caixas, fotos, logos e ícones. Clique para selecionar, arraste para mover e baixe a imagem pronta para postar.</p>
+      <ul class="feats">
+        <li>
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208 40H48a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16Zm0 160H48V56h160v144ZM88 88h80a8 8 0 0 1 0 16h-32v64a8 8 0 0 1-16 0v-64H88a8 8 0 0 1 0-16Z"/></svg>
+          <h3>Sem instalar</h3>
+          <p>Um arquivo só. Copie para o pendrive e abra em qualquer PC com Windows 10 ou 11.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M219.31 72 184 36.69A15.86 15.86 0 0 0 172.69 32H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V83.31A15.86 15.86 0 0 0 219.31 72ZM168 208H88v-56h80Zm40 0h-24v-56a16 16 0 0 0-16-16H88a16 16 0 0 0-16 16v56H48V48h124.69L208 83.31ZM160 72a8 8 0 0 1-8 8H96a8 8 0 0 1 0-16h56a8 8 0 0 1 8 8Z"/></svg>
+          <h3>Salva sozinho</h3>
+          <p>O trabalho fica guardado ao lado do programa. Fechou sem querer, abriu de novo, está tudo lá.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16Zm0 16v102.75l-26.07-26.06a16 16 0 0 0-22.63 0l-20 20-44-44a16 16 0 0 0-22.62 0L40 149.37V56ZM40 172l52-52 80 80H40Zm176 28h-21.37l-36-36 20-20L216 181.38V200Zm-72-100a12 12 0 1 1 12 12 12 12 0 0 1-12-12Z"/></svg>
+          <h3>PNG, JPEG, WEBP ou SVG</h3>
+          <p>Escolha o formato e o tamanho. Na hora de baixar, você escolhe a pasta, e ela fica lembrada.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M104 40H56a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16Zm0 64H56V56h48Zm96-64h-48a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16Zm0 64h-48V56h48Zm-96 32H56a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-48a16 16 0 0 0-16-16Zm0 64H56v-48h48Zm96-64h-48a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-48a16 16 0 0 0-16-16Zm0 64h-48v-48h48Z"/></svg>
+          <h3>Modelos para reaproveitar</h3>
+          <p>Salve uma arte como modelo e troque só o texto na próxima vaga. Fontes e ícones já vêm junto.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="wrap">
+      <h2>Comece em três passos</h2>
+      <p class="intro">Não precisa de conta, internet nem instalação.</p>
+      <ol>
+        <li><h3>Baixe o Lousa.exe</h3><p>Guarde onde quiser: área de trabalho, pasta de documentos ou pendrive.</p></li>
+        <li><h3>Abra com dois cliques</h3><p>Se o Windows mostrar um aviso azul, clique em <kbd>Mais informações</kbd> e depois em <kbd>Executar assim mesmo</kbd>.</p></li>
+        <li><h3>Edite e baixe a arte</h3><p>Parta de um modelo, troque textos e fotos e clique em <kbd>Baixar imagem</kbd>.</p></li>
+      </ol>
+      <div class="again">
+        <a class="dl" href="Lousa.exe" download="Lousa.exe">
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224 144v64a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8v-64a8 8 0 0 1 16 0v56h160v-56a8 8 0 0 1 16 0Zm-101.66 5.66a8 8 0 0 0 11.32 0l40-40a8 8 0 0 0-11.32-11.32L136 124.69V32a8 8 0 0 0-16 0v92.69L93.66 98.34a8 8 0 0 0-11.32 11.32Z"/></svg>
+          Baixar para Windows
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Lousa 1.0.7</span>
+    <a href="https://github.com/bellizzileandro/lousa/issues">Encontrou um problema? Conte para a gente</a>
+  </div>
+</footer>
+</body>
+</html>
